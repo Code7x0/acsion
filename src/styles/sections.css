@@ -551,11 +551,19 @@
   gap: var(--collection-card-gap, var(--space-8));
 }
 
+.collection-story__grid > * {
+  min-width: 0;
+}
+
 .collection-card {
   position: relative;
   display: block;
-  min-height: var(--collection-card-height, 38rem);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
   aspect-ratio: 4 / 5;
+  height: auto;
   overflow: hidden;
   color: var(--color-text-inverse);
   text-decoration: none;
@@ -651,8 +659,20 @@
   }
 
   .collection-card {
-    min-height: 24rem;
+    min-height: 0;
     aspect-ratio: 4 / 5;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .philosophy {
+    --philosophy-text-width: 22rem;
+    --philosophy-column-gap: 4.5rem;
+    --philosophy-image-bleed-x: 28px;
+  }
+
+  .collection-story__grid {
+    gap: var(--space-6);
   }
 }
 
@@ -664,7 +684,8 @@
   }
 
   .collection-card {
-    min-height: 20rem;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
   }
 }
 
