@@ -1,0 +1,225 @@
+/* ==========================================================================
+   Ascension Animation System
+   Slow, subtle, luxury motion — fade, reveal, scale, parallax
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Animation Tokens (reference in JS or section markup)
+   -------------------------------------------------------------------------- */
+
+:root {
+  --animation-distance-sm: 12px;
+  --animation-distance-md: 24px;
+  --animation-distance-lg: 40px;
+  --animation-scale-start: 1.05;
+  --animation-scale-end: 1;
+  --animation-parallax-ratio: 0.15;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes
+   -------------------------------------------------------------------------- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--animation-distance-md));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes text-fade {
+  from {
+    opacity: 0;
+    transform: translateY(var(--animation-distance-sm));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes image-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(var(--animation-scale-start));
+  }
+
+  to {
+    transform: scale(var(--animation-scale-end));
+  }
+}
+
+@keyframes scale-out-hover {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.03);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Animation Utilities
+   -------------------------------------------------------------------------- */
+
+.animate-fade-up {
+  animation: fade-up var(--duration-slower) var(--ease-out-slow) both;
+}
+
+.animate-fade-in {
+  animation: fade-in var(--duration-slow) var(--ease-luxury) both;
+}
+
+.animate-text-fade {
+  animation: text-fade var(--duration-slower) var(--ease-out-slow) both;
+}
+
+.animate-image-reveal {
+  animation: image-reveal var(--duration-cinematic) var(--ease-out-slow) both;
+}
+
+.animate-scale-in {
+  animation: scale-in var(--duration-cinematic) var(--ease-out-slow) both;
+}
+
+/* Stagger delays */
+.animate-delay-1 { animation-delay: 100ms; }
+.animate-delay-2 { animation-delay: 200ms; }
+.animate-delay-3 { animation-delay: 300ms; }
+.animate-delay-4 { animation-delay: 400ms; }
+.animate-delay-5 { animation-delay: 500ms; }
+.animate-delay-6 { animation-delay: 600ms; }
+
+/* --------------------------------------------------------------------------
+   Scroll-triggered states (activated via theme.js)
+   -------------------------------------------------------------------------- */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animate="fade"] {
+  transform: none;
+}
+
+[data-animate="fade"].is-visible {
+  transform: none;
+}
+
+[data-animate="scale"] {
+  transform: scale(var(--animation-scale-start));
+}
+
+[data-animate="scale"].is-visible {
+  transform: scale(var(--animation-scale-end));
+}
+
+[data-animate="reveal"] {
+  opacity: 1;
+  clip-path: inset(0 0 100% 0);
+  transform: none;
+  transition: clip-path var(--duration-cinematic) var(--ease-out-slow);
+}
+
+[data-animate="reveal"].is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* --------------------------------------------------------------------------
+   Hover transitions
+   -------------------------------------------------------------------------- */
+
+.hover-zoom {
+  overflow: hidden;
+}
+
+.hover-zoom img,
+.hover-zoom .media__image {
+  transition: transform var(--duration-slow) var(--ease-out-slow);
+}
+
+.hover-zoom:hover img,
+.hover-zoom:hover .media__image {
+  transform: scale(1.03);
+}
+
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: var(--border-width-thin);
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-base) var(--ease-out-slow);
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+
+  .hover-zoom:hover img,
+  .hover-zoom:hover .media__image {
+    transform: none;
+  }
+}
