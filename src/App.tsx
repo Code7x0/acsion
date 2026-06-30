@@ -28,8 +28,8 @@ export default function App() {
       <main id="main-content" role="main" tabIndex={-1}>
         <Hero />
         <Philosophy />
-        <CollectionStory />
         <FeaturedProducts onQuickAdd={handleQuickAdd} />
+        <CollectionStory />
         <EditorialGrid />
         <div className="section-divider section-divider--editorial-newsletter" aria-hidden="true" />
         <Newsletter />

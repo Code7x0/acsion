@@ -204,6 +204,8 @@ html {
 body {
   margin: 0;
   overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
   font-family: var(--font-body);
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-regular);
@@ -409,6 +411,12 @@ p {
 .container--full {
   max-width: var(--container-full);
   padding-inline: 0;
+}
+
+main#MainContent,
+.shopify-section {
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .container--flush-mobile {
