@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { site } from '../../data/content';
+import { Logo } from './Logo';
 
 type HeaderProps = {
   cartCount?: number;
@@ -28,9 +29,7 @@ export function Header({ cartCount = 0 }: HeaderProps) {
     <>
       <header className="site-header site-header--transparent" role="banner">
         <div className="site-header__inner container container--wide">
-          <a className="site-header__logo type-h4" href="#" onClick={closeMenu}>
-            {site.name}
-          </a>
+          <Logo className="site-header__logo" onClick={closeMenu} />
 
           <nav className="site-header__nav" aria-label="Primary">
             <ul className="site-header__menu">

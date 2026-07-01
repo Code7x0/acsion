@@ -549,6 +549,20 @@ body.menu-open {
   }
 }
 
+@media (max-width: 767px) {
+  .site-logo--header .site-logo__image {
+    --logo-height: 4.6875rem;
+    --logo-max-width: 11.5rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .site-logo--header .site-logo__image {
+    --logo-height: 4.6875rem;
+    --logo-max-width: 11.5rem;
+  }
+}
+
 @media (min-width: 1200px) {
   .mobile-menu {
     display: none;
