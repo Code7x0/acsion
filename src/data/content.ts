@@ -2,48 +2,42 @@ export const site = {
   name: 'Ascension',
   tagline: 'Frequency-inspired living for those becoming.',
   nav: [
-    { label: 'Shop', href: '#products' },
-    { label: 'Collections', href: '#collections' },
-    { label: 'Our Story', href: '#philosophy' },
-    { label: 'Journal', href: '#editorial' },
-    { label: 'Contact', href: '#newsletter' },
+    { label: 'Shop', href: '/shop' },
+    { label: 'Collections', href: '/#collections' },
+    { label: 'Our Story', href: '/about' },
+    { label: 'Contact', href: '/#newsletter' },
   ],
+  footerTagline: 'Frequency happens within',
   footerMenus: [
     {
       heading: 'Shop',
       links: [
-        { label: 'All products', href: '#products' },
-        { label: 'Apparel', href: '#products' },
-        { label: 'Wraps & accessories', href: '#products' },
-        { label: 'Crystal bracelets', href: '#products' },
-        { label: 'Yoga & wellness', href: '#products' },
+        { label: 'All Products', href: '/#products' },
+        { label: 'Apparel', href: '/#products' },
+        { label: 'Lifestyle', href: '/#products' },
+        { label: 'Accessories', href: '/#products' },
       ],
     },
     {
       heading: 'Collections',
       links: [
-        { label: 'Liminal', href: '#collections' },
-        { label: 'Solar', href: '#collections' },
-        { label: 'Aether', href: '#collections' },
+        { label: 'Liminal', href: '/#collections' },
+        { label: 'Solar', href: '/#collections' },
+        { label: 'Aether', href: '/#collections' },
       ],
     },
     {
       heading: 'Company',
       links: [
-        { label: 'Our story', href: '#philosophy' },
-        { label: 'Journal', href: '#editorial' },
-        { label: 'Contact', href: '#newsletter' },
+        { label: 'Our Story', href: '/about' },
+        { label: 'Contact', href: '/#newsletter' },
         { label: 'FAQs', href: '#' },
       ],
     },
-    {
-      heading: 'Connect',
-      links: [
-        { label: 'Instagram', href: '#' },
-        { label: 'Pinterest', href: '#' },
-        { label: 'Email', href: '#newsletter' },
-      ],
-    },
+  ],
+  footerLegal: [
+    { label: 'Privacy Policy', href: '#' },
+    { label: 'Terms of Service', href: '#' },
   ],
   copyright: `© ${new Date().getFullYear()} Ascension. All rights reserved.`,
 };
@@ -183,9 +177,8 @@ export const editorialGrid = {
 };
 
 export const newsletter = {
-  backgroundImage:
-    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=80',
-  overlayOpacity: 0.72,
+  backgroundImage: '/images/newsletter-bg.jpg',
+  overlayOpacity: 0.48,
   label: 'Join the Ascension community',
   heading: 'Stay connected. Live intentionally.',
   subtext: 'Be the first to know about new collections, journal entries, and offerings.',

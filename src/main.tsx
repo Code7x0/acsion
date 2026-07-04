@@ -5,6 +5,8 @@ import './styles/theme.css';
 import './styles/animations.css';
 import './styles/sections.css';
 import './styles/responsive.css';
+import './styles/about.css';
+import './styles/shop.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

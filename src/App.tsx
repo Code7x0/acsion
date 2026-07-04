@@ -1,19 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { Hero } from './components/sections/Hero';
-import { Philosophy } from './components/sections/Philosophy';
-import { CollectionStory } from './components/sections/CollectionStory';
-import { FeaturedProducts } from './components/sections/FeaturedProducts';
-import { EditorialGrid } from './components/sections/EditorialGrid';
-import { Newsletter } from './components/sections/Newsletter';
+import { AboutPage } from './pages/AboutPage';
+import { HomePage } from './pages/HomePage';
+import { ShopPage } from './pages/ShopPage';
 import { useHeaderScroll, useScrollAnimations } from './hooks/useThemeEffects';
+import { scrollToHashWhenReady } from './utils/navigation';
 
-export default function App() {
+function AppShell() {
   const [cartCount, setCartCount] = useState(0);
+  const location = useLocation();
 
   useScrollAnimations();
   useHeaderScroll();
+
+  useEffect(() => {
+    if (location.hash) {
+      return scrollToHashWhenReady(location.hash.slice(1), 'smooth');
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [location.pathname, location.hash]);
 
   const handleQuickAdd = () => {
     setCartCount((count) => count + 1);
@@ -24,17 +32,23 @@ export default function App() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <Header cartCount={cartCount} />
+      <Header cartCount={cartCount} logoHref="/" />
       <main id="main-content" role="main" tabIndex={-1}>
-        <Hero />
-        <Philosophy />
-        <FeaturedProducts onQuickAdd={handleQuickAdd} />
-        <CollectionStory />
-        <EditorialGrid />
-        <div className="section-divider section-divider--editorial-newsletter" aria-hidden="true" />
-        <Newsletter />
+        <Routes>
+          <Route path="/" element={<HomePage onQuickAdd={handleQuickAdd} />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/shop" element={<ShopPage />} />
+        </Routes>
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
+    </BrowserRouter>
   );
 }

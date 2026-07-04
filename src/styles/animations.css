@@ -141,6 +141,50 @@
   transform: none;
 }
 
+[data-animate="fade-up"] {
+  transform: translateY(var(--animation-distance-md));
+}
+
+[data-animate="fade-up"].is-visible {
+  transform: translateY(0);
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(calc(var(--animation-distance-md) * -1));
+}
+
+[data-animate="fade-left"].is-visible {
+  transform: translateX(0);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(var(--animation-distance-md));
+}
+
+[data-animate="fade-right"].is-visible {
+  transform: translateX(0);
+}
+
+[data-animate="foundation-scale"] {
+  transform: scale(0.92);
+}
+
+[data-animate="foundation-scale"].is-visible {
+  transform: scale(1);
+}
+
+[data-animate-delay="150"] {
+  transition-delay: 150ms;
+}
+
+[data-animate-delay="300"] {
+  transition-delay: 300ms;
+}
+
+[data-animate-delay="450"] {
+  transition-delay: 450ms;
+}
+
 [data-animate="scale"] {
   transform: scale(var(--animation-scale-start));
 }
