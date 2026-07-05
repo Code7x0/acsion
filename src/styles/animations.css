@@ -173,6 +173,23 @@
   transform: scale(1);
 }
 
+[data-animate="foundation-scale"].is-visible {
+  transform: scale(1);
+}
+
+[data-animate="lotus-scale"] {
+  opacity: 0;
+  transform: scale(0.92) translateZ(0);
+  transition:
+    opacity 1.2s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 1.2s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+[data-animate="lotus-scale"].is-visible {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+}
+
 [data-animate-delay="150"] {
   transition-delay: 150ms;
 }

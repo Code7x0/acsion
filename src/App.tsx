@@ -37,7 +37,7 @@ function AppShell() {
         <Routes>
           <Route path="/" element={<HomePage onQuickAdd={handleQuickAdd} />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/shop" element={<ShopPage onQuickAdd={handleQuickAdd} />} />
         </Routes>
       </main>
       <Footer />

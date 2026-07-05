@@ -12,10 +12,10 @@ export const site = {
     {
       heading: 'Shop',
       links: [
-        { label: 'All Products', href: '/#products' },
-        { label: 'Apparel', href: '/#products' },
-        { label: 'Lifestyle', href: '/#products' },
-        { label: 'Accessories', href: '/#products' },
+        { label: 'All Products', href: '/shop' },
+        { label: 'Apparel', href: '/shop' },
+        { label: 'Lifestyle', href: '/shop' },
+        { label: 'Accessories', href: '/shop' },
       ],
     },
     {
@@ -104,7 +104,8 @@ export const featuredProducts = {
   label: 'Everyday reminders',
   heading: 'Essentials for presence and intention.',
   viewAllLabel: 'View all products',
-  viewAllLink: '#products',
+  viewAllLink: '/shop',
+  limit: 5,
   products: [
     {
       title: 'Ascension Wrap',

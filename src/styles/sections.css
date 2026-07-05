@@ -833,8 +833,20 @@
 }
 
 .featured-products__empty {
+  margin: 0;
   text-align: center;
   padding-block: var(--space-12);
+  color: var(--color-text-muted);
+}
+
+.featured-products__loading {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
 /* Product card */
