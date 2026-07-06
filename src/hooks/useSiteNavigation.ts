@@ -10,9 +10,8 @@ export function useSiteNavigation() {
     (href: string) => {
       const { pathname, hash } = parseSiteHref(href);
       const nextHash = hash ? `#${hash}` : '';
-      const currentHash = location.hash || '';
       const isSamePath = location.pathname === pathname;
-      const isSameHash = currentHash === nextHash;
+      const isSameHash = (location.hash || '') === nextHash;
 
       if (isSamePath && isSameHash) {
         scrollToHash(hash, 'smooth');

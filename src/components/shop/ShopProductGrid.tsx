@@ -1,8 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useMemo, useState } from 'react';
+import { useShopSearch } from '../../context/ShopSearchContext';
 import { shopProductGrid, shopProducts } from '../../data/shopContent';
 import { ShopProductCard } from './ShopProductCard';
 import {
+  filterShopProductsByQuery,
   formatProductCount,
   getShopProductSize,
   sortShopProducts,
@@ -23,10 +25,14 @@ function FilterIcon() {
 
 export function ShopProductGrid({ onQuickAdd }: ShopProductGridProps) {
   const prefersReducedMotion = useReducedMotion();
+  const { query } = useShopSearch();
   const [sort, setSort] = useState<ShopSortOption>('all');
   const [filterOpen, setFilterOpen] = useState(false);
 
-  const sortedProducts = useMemo(() => sortShopProducts(shopProducts, sort), [sort]);
+  const sortedProducts = useMemo(() => {
+    const filtered = filterShopProductsByQuery(shopProducts, query);
+    return sortShopProducts(filtered, sort);
+  }, [query, sort]);
 
   const containerVariants = {
     hidden: {},
@@ -53,6 +59,10 @@ export function ShopProductGrid({ onQuickAdd }: ShopProductGridProps) {
   };
 
   if (sortedProducts.length === 0) {
+    const emptyMessage = query.trim()
+      ? `No products match "${query.trim()}".`
+      : shopProductGrid.emptyMessage;
+
     return (
       <section className="shop-product-grid" aria-labelledby="shop-products-heading">
         <div className="shop-product-grid__inner">
@@ -60,10 +70,12 @@ export function ShopProductGrid({ onQuickAdd }: ShopProductGridProps) {
             Shop Products
           </h2>
           <div className="shop-product-grid__empty">
-            <p>{shopProductGrid.emptyMessage}</p>
-            <a className="shop-product-grid__empty-link" href={shopProductGrid.emptyCtaLink}>
-              {shopProductGrid.emptyCtaLabel}
-            </a>
+            <p>{emptyMessage}</p>
+            {!query.trim() && (
+              <a className="shop-product-grid__empty-link" href={shopProductGrid.emptyCtaLink}>
+                {shopProductGrid.emptyCtaLabel}
+              </a>
+            )}
           </div>
         </div>
       </section>

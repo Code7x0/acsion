@@ -230,27 +230,6 @@
 
 .site-logo--header {
   position: relative;
-  isolation: isolate;
-  overflow: visible;
-}
-
-.site-logo--header::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 0;
-  width: 92%;
-  height: 108%;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 211, 106, 0.16) 0%,
-    rgba(255, 184, 0, 0.07) 42%,
-    transparent 70%
-  );
 }
 
 .site-logo:hover {
@@ -269,11 +248,7 @@
   transition:
     height var(--duration-base) var(--ease-luxury),
     max-width var(--duration-base) var(--ease-luxury);
-  filter:
-    brightness(1.06)
-    drop-shadow(0 1px 10px rgba(0, 0, 0, 0.12))
-    drop-shadow(0 0 10px rgba(255, 211, 106, 0.14))
-    drop-shadow(0 0 20px rgba(255, 184, 0, 0.07));
+  filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.1));
 }
 
 .site-logo--header .site-logo__image {
@@ -1319,6 +1294,11 @@
   .newsletter__submit {
     width: 100%;
   }
+}
+
+main:has(.product-page) + .site-footer {
+  margin-top: 0;
+  padding-top: clamp(2rem, 3.5vw, 2.75rem);
 }
 
 /* footer.liquid */

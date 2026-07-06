@@ -7,6 +7,7 @@ type ShopProductCardProps = {
   size: ShopProductSize;
   index: number;
   onQuickAdd?: () => void;
+  variant?: 'default' | 'recommendation';
 };
 
 function HeartIcon() {
@@ -22,14 +23,21 @@ function HeartIcon() {
   );
 }
 
-export function ShopProductCard({ product, size, index, onQuickAdd }: ShopProductCardProps) {
+export function ShopProductCard({
+  product,
+  size,
+  index,
+  onQuickAdd,
+  variant = 'default',
+}: ShopProductCardProps) {
+  const isRecommendation = variant === 'recommendation';
   const [wishlisted, setWishlisted] = useState(false);
   const [added, setAdded] = useState(false);
   const loading = index < 2 ? 'eager' : 'lazy';
   const fetchPriority = index < 2 ? ('high' as const) : undefined;
 
   return (
-    <article className={`shop-product-card shop-product-card--${size}`}>
+    <article className={`shop-product-card shop-product-card--${size}${isRecommendation ? ' shop-product-card--recommendation' : ''}`}>
       <a className="shop-product-card__link" href={product.href}>
         <div className="shop-product-card__media">
           <div className="shop-product-card__image-wrap">
@@ -55,7 +63,7 @@ export function ShopProductCard({ product, size, index, onQuickAdd }: ShopProduc
             )}
           </div>
           <span className="shop-product-card__overlay" aria-hidden="true" />
-          {product.available && (
+          {!isRecommendation && product.available && (
             <button
               type="button"
               className={`product-card__quick-add shop-product-card__quick-add${added ? ' product-card__quick-add--added' : ''}`}
@@ -73,25 +81,27 @@ export function ShopProductCard({ product, size, index, onQuickAdd }: ShopProduc
               {added ? '✓ Added' : '+'}
             </button>
           )}
-          <button
-            type="button"
-            className={`shop-product-card__wishlist${wishlisted ? ' shop-product-card__wishlist--active' : ''}`}
-            aria-label={wishlisted ? `Remove ${product.title} from wishlist` : `Add ${product.title} to wishlist`}
-            aria-pressed={wishlisted}
-            onClick={(event) => {
-              event.preventDefault();
-              event.stopPropagation();
-              setWishlisted((active) => !active);
-            }}
-          >
-            <HeartIcon />
-          </button>
+          {!isRecommendation && (
+            <button
+              type="button"
+              className={`shop-product-card__wishlist${wishlisted ? ' shop-product-card__wishlist--active' : ''}`}
+              aria-label={wishlisted ? `Remove ${product.title} from wishlist` : `Add ${product.title} to wishlist`}
+              aria-pressed={wishlisted}
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setWishlisted((active) => !active);
+              }}
+            >
+              <HeartIcon />
+            </button>
+          )}
         </div>
 
         <div className="shop-product-card__info">
           <p className="shop-product-card__collection">{product.collection}</p>
           <h3 className="shop-product-card__title">{product.title}</h3>
-          <p className="shop-product-card__price">${product.price}</p>
+          <p className="shop-product-card__price">${product.price.toFixed(2)}</p>
           <span className="shop-product-card__cta">
             View Product
             <span className="shop-product-card__cta-arrow" aria-hidden="true">

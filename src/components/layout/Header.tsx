@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { site } from '../../data/content';
+import { useShopSearch } from '../../context/ShopSearchContext';
 import { useSiteNavigation } from '../../hooks/useSiteNavigation';
 import { SiteLink } from '../ui/SiteLink';
 import { Logo } from './Logo';
@@ -43,7 +44,9 @@ function CartIcon() {
 
 export function Header({ cartCount = 0, logoHref = '/' }: HeaderProps) {
   const { navigateTo } = useSiteNavigation();
+  const { isOpen: searchOpen, toggleSearch } = useShopSearch();
   const location = useLocation();
+  const isShopPage = location.pathname === '/shop';
   const [menuOpen, setMenuOpen] = useState(false);
   const closeTimerRef = useRef<number | null>(null);
 
@@ -129,9 +132,18 @@ export function Header({ cartCount = 0, logoHref = '/' }: HeaderProps) {
           </nav>
 
           <div className="site-header__actions">
-            <a className="site-header__icon site-header__icon--search" href="#" aria-label="Search">
-              <SearchIcon />
-            </a>
+            {isShopPage && (
+              <button
+                type="button"
+                className={`site-header__icon site-header__icon--search${searchOpen ? ' site-header__icon--active' : ''}`}
+                aria-label="Search products"
+                aria-expanded={searchOpen}
+                aria-controls="shop-search"
+                onClick={toggleSearch}
+              >
+                <SearchIcon />
+              </button>
+            )}
             <a className="site-header__icon site-header__icon--account" href="#" aria-label="Account">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                 <circle cx="9" cy="5.5" r="3" stroke="currentColor" strokeWidth="1" />

@@ -7,7 +7,7 @@ type LogoProps = {
 const logoSrc = '/images/ascension-logo.png';
 const logoAlt = 'Ascension by Aluminate Life';
 
-export function Logo({ className = '', href = '/', onClick }: LogoProps) {
+export function Logo({ className = '', href = '#', onClick }: LogoProps) {
   const classes = ['site-logo', 'site-logo--header', className].filter(Boolean).join(' ');
 
   return (
