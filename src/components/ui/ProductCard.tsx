@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 type Product = {
@@ -13,6 +14,7 @@ type ProductCardProps = Product & {
 
 export function ProductCard({ title, price, image, href, onQuickAdd }: ProductCardProps) {
   const [added, setAdded] = useState(false);
+  const productHref = href && href !== '#' ? href : '/shop';
 
   const handleQuickAdd = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -25,7 +27,7 @@ export function ProductCard({ title, price, image, href, onQuickAdd }: ProductCa
   };
 
   return (
-    <a href={href} className="product-card">
+    <Link to={productHref} className="product-card">
       <div className="product-card__media">
         <img className="product-card__image product-card__image--primary" src={image} alt={title} loading="lazy" />
         <button
@@ -39,8 +41,8 @@ export function ProductCard({ title, price, image, href, onQuickAdd }: ProductCa
       </div>
       <div className="product-card__info">
         <h3 className="product-card__title">{title}</h3>
-        <p className="product-card__price">${price}</p>
+        <p className="product-card__price">${price.toFixed(2)}</p>
       </div>
-    </a>
+    </Link>
   );
 }

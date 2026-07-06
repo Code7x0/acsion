@@ -1,4 +1,5 @@
 import { featuredProducts } from '../../data/content';
+import { shopProducts } from '../../data/shopContent';
 import { SectionTitle } from '../ui/SectionTitle';
 import { LinkText } from '../ui/LinkText';
 import { ProductCard } from '../ui/ProductCard';
@@ -8,6 +9,8 @@ type FeaturedProductsProps = {
 };
 
 export function FeaturedProducts({ onQuickAdd }: FeaturedProductsProps) {
+  const products = shopProducts.slice(0, featuredProducts.limit);
+
   return (
     <section
       id="products"
@@ -25,14 +28,20 @@ export function FeaturedProducts({ onQuickAdd }: FeaturedProductsProps) {
         </div>
 
         <div className="featured-products__grid" data-animate="fade">
-          {featuredProducts.products.map((product, index) => (
+          {products.map((product, index) => (
             <div
               className="featured-products__item"
               data-animate="fade"
-              key={product.title}
+              key={product.id}
               style={{ '--stagger-index': index } as React.CSSProperties}
             >
-              <ProductCard {...product} onQuickAdd={onQuickAdd} />
+              <ProductCard
+                title={product.title}
+                price={product.price}
+                image={product.image}
+                href={product.href}
+                onQuickAdd={onQuickAdd}
+              />
             </div>
           ))}
         </div>
