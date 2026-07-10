@@ -180,17 +180,27 @@
   }
 
   .hero__text {
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
 
-  .hero__cta {
-    margin-top: var(--space-4);
+  .hero__subheading {
+    margin-top: 0;
+  }
+
+  .hero__divider {
+    margin-top: 0;
   }
 
   .hero__actions {
+    margin-top: 0;
+    gap: var(--space-5);
     min-width: 0;
     width: 100%;
     max-width: 20rem;
+  }
+
+  .hero__cta {
+    margin-top: 0;
   }
 
   .hero__button {
@@ -240,20 +250,20 @@
   position: relative;
   z-index: 1;
   display: block;
-  width: auto;
-  height: var(--logo-height, 4.6875rem);
-  max-width: var(--logo-max-width, 12rem);
+  width: var(--logo-width, 75px);
+  height: var(--logo-height, 75px);
+  max-width: var(--logo-width, 75px);
   object-fit: contain;
   object-position: left center;
   transition:
-    height var(--duration-base) var(--ease-luxury),
-    max-width var(--duration-base) var(--ease-luxury);
+    width var(--duration-base) var(--ease-luxury),
+    height var(--duration-base) var(--ease-luxury);
   filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.1));
 }
 
 .site-logo--header .site-logo__image {
-  --logo-height: 4.6875rem;
-  --logo-max-width: 11.5rem;
+  --logo-width: 75px;
+  --logo-height: 75px;
 }
 
 /* header.liquid */
@@ -355,7 +365,7 @@
 
 @media (max-width: 767px) {
   .site-header {
-    min-height: calc(var(--logo-height, 4.6875rem) + var(--space-10));
+    min-height: calc(var(--logo-height, 75px) + var(--space-10));
     padding-block: var(--space-5);
   }
 
@@ -365,8 +375,8 @@
   }
 
   .site-header--solid .site-logo--header .site-logo__image {
-    --logo-height: 3rem;
-    --logo-max-width: 8.75rem;
+    --logo-width: 75px;
+    --logo-height: 75px;
   }
 
   .site-header__nav {
@@ -1336,8 +1346,9 @@ main:has(.product-page) + .site-footer {
 }
 
 .site-footer__brand-mark {
-  width: 5.5rem;
-  height: auto;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
 }
 
 .site-footer__brand-tagline {

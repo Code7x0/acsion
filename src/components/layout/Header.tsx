@@ -182,13 +182,11 @@ export function Header({ cartCount = 0, logoHref = '/' }: HeaderProps) {
         <div className="mobile-menu__overlay" onClick={closeMenu} aria-hidden="true" />
         <div className="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Site menu">
           <div className="mobile-menu__header">
-            <a
-              className="mobile-menu__logo type-h4"
+            <Logo
+              className="site-logo--mobile-menu"
               href={logoHref}
               onClick={(event) => handleNavClick(event, logoHref, true)}
-            >
-              {site.name}
-            </a>
+            />
             <button
               type="button"
               className="mobile-menu__close"

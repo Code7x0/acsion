@@ -43,7 +43,7 @@ export const site = {
 };
 
 export const hero = {
-  image: '/images/hero-desktop.jpg',
+  image: '/images/hero-desktop.jpg?v=2',
   overlayOpacity: 0.2,
   height: 95,
   heading: 'Ascension',

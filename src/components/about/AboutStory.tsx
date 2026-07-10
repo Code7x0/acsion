@@ -1,11 +1,12 @@
 import { aboutStory } from '../../data/aboutContent';
+import { logoAlt, logoSrc } from '../../data/logo';
 import { SectionTitle } from '../ui/SectionTitle';
 
 export function AboutStory() {
   return (
     <section className="about-story" aria-labelledby="about-story-heading">
       <div className="about-story__watermark" aria-hidden="true">
-        <img src="/images/ascension-logo.png" alt="" loading="lazy" decoding="async" />
+        <img src={logoSrc} alt={logoAlt} loading="lazy" decoding="async" />
       </div>
 
       <div className="about-story__media" data-animate="scale">

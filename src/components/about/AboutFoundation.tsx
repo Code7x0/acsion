@@ -1,11 +1,12 @@
 import { aboutFoundation } from '../../data/aboutContent';
+import { logoSrc } from '../../data/logo';
 
 export function AboutFoundation() {
   return (
     <section className="about-foundation" aria-labelledby="about-foundation-heading">
       <div className="about-foundation__leaf" aria-hidden="true" />
       <div className="about-foundation__watermark" aria-hidden="true">
-        <img src={aboutFoundation.lotusImage} alt="" loading="lazy" decoding="async" />
+        <img src={logoSrc} alt="" loading="lazy" decoding="async" />
       </div>
 
       <div className="about-foundation__inner">
@@ -47,7 +48,7 @@ export function AboutFoundation() {
               >
                 <img
                   className="about-foundation__lotus"
-                  src={aboutFoundation.lotusImage}
+                  src={logoSrc}
                   alt=""
                   loading="lazy"
                   decoding="async"

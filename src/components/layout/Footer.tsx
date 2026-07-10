@@ -1,5 +1,6 @@
 import { SiteLink } from '../ui/SiteLink';
 import { site } from '../../data/content';
+import { logoAlt, logoSrc } from '../../data/logo';
 
 export function Footer() {
   return (
@@ -9,8 +10,8 @@ export function Footer() {
           <SiteLink className="site-footer__brand-link" href="/" ariaLabel="Ascension home">
             <img
               className="site-footer__brand-mark"
-              src="/images/ascension-logo.png"
-              alt=""
+              src={logoSrc}
+              alt={logoAlt}
               loading="lazy"
               decoding="async"
             />

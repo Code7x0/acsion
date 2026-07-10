@@ -1,11 +1,10 @@
+import { logoAlt, logoSrc } from '../../data/logo';
+
 type LogoProps = {
   className?: string;
   href?: string;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
-
-const logoSrc = '/images/ascension-logo.png';
-const logoAlt = 'Ascension by Aluminate Life';
 
 export function Logo({ className = '', href = '#', onClick }: LogoProps) {
   const classes = ['site-logo', 'site-logo--header', className].filter(Boolean).join(' ');
@@ -15,11 +14,11 @@ export function Logo({ className = '', href = '#', onClick }: LogoProps) {
       <img
         className="site-logo__image"
         src={logoSrc}
-        alt=""
-        width={1024}
-        height={1024}
+        alt={logoAlt}
+        width={75}
+        height={75}
         decoding="async"
-        loading="lazy"
+        loading="eager"
       />
     </a>
   );
