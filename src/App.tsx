@@ -8,7 +8,7 @@ import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { ShopPage } from './pages/ShopPage';
-import { useHeaderScroll, useScrollAnimations } from './hooks/useThemeEffects';
+import { useScrollAnimations } from './hooks/useThemeEffects';
 import { scrollToHashWhenReady } from './utils/navigation';
 
 function AppShell() {
@@ -16,7 +16,6 @@ function AppShell() {
   const location = useLocation();
 
   useScrollAnimations();
-  useHeaderScroll();
 
   useEffect(() => {
     if (location.hash) {

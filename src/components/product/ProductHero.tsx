@@ -11,6 +11,7 @@ type ProductHeroProps = {
 export function ProductHero({ product, onAddToCart }: ProductHeroProps) {
   const galleryRef = useRef<HTMLDivElement>(null);
   const purchaseRef = useRef<HTMLDivElement>(null);
+  const tallGallery = product.handle === 'ascension-wrap';
 
   useEffect(() => {
     const gallery = galleryRef.current;
@@ -33,7 +34,8 @@ export function ProductHero({ product, onAddToCart }: ProductHeroProps) {
         return;
       }
 
-      const height = purchase.offsetHeight;
+      const scale = tallGallery ? 1.42 : 1.12;
+      const height = Math.round(purchase.offsetHeight * scale);
       frame.style.height = `${height}px`;
       frame.style.minHeight = `${height}px`;
       frame.style.maxHeight = `${height}px`;
@@ -50,10 +52,13 @@ export function ProductHero({ product, onAddToCart }: ProductHeroProps) {
       observer.disconnect();
       desktopQuery.removeEventListener('change', sync);
     };
-  }, [product.handle]);
+  }, [product.handle, tallGallery]);
 
   return (
-    <section className="product-hero" aria-labelledby="product-title">
+    <section
+      className={`product-hero${tallGallery ? ' product-hero--tall-gallery' : ''}`}
+      aria-labelledby="product-title"
+    >
       <div className="product-hero__inner container container--wide">
         <div ref={galleryRef}>
           <ProductGallery images={product.images} />

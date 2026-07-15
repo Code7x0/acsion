@@ -109,8 +109,8 @@
   --gutter: clamp(1.5rem, 2vw + 0.25rem, 3rem);
   --gutter-lg: clamp(1.5rem, 2vw + 0.25rem, 3rem);
 
-  /* Header */
-  --header-height: 5.375rem;
+  /* Header — fixed solid bar; content sits below */
+  --header-height: 5.5rem;
 
   /* Grid */
   --grid-columns: 12;
@@ -176,6 +176,7 @@
     --section-gap: var(--space-10);
     --gutter: 1.5rem;
     --gutter-lg: 1.5rem;
+    --header-height: calc(75px + var(--space-10));
   }
 }
 
@@ -216,6 +217,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* Fixed nav sits above content — keep heroes separate */
+main,
+#main-content,
+#MainContent {
+  padding-top: var(--header-height);
 }
 
 img,

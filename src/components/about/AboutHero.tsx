@@ -8,7 +8,6 @@ export function AboutHero() {
       className="hero hero--about hero--align-left hero--align-mobile-left"
       style={
         {
-          '--hero-height': `${aboutHero.height}vh`,
           '--hero-object-position': '68% center',
           '--hero-object-position-mobile': '72% center',
         } as CSSProperties

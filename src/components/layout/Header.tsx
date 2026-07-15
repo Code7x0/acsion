@@ -108,7 +108,7 @@ export function Header({ cartCount = 0, logoHref = '/' }: HeaderProps) {
 
   return (
     <>
-      <header className="site-header site-header--transparent" role="banner">
+      <header className="site-header site-header--solid" role="banner">
         <div className="site-header__inner container container--wide">
           <Logo
             className="site-header__logo"

@@ -7,7 +7,6 @@ export function Hero() {
       className="hero hero--align-center hero--align-mobile-center"
       style={
         {
-          '--hero-height': `${hero.height}vh`,
           '--hero-overlay-opacity': hero.overlayOpacity,
           '--hero-object-position': 'center center',
           '--hero-object-position-mobile': 'left 30%',

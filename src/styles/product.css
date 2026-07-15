@@ -16,12 +16,16 @@
   --product-section-gap: clamp(2rem, 4vw, 3.5rem);
   background-color: var(--product-bg);
   color: var(--product-text);
-  padding-top: calc(var(--header-height, 5.375rem) + var(--product-section-gap));
+  padding-top: var(--product-section-gap);
   padding-bottom: 0;
 }
 
 .product-hero {
   padding-bottom: var(--product-section-gap);
+}
+
+.product-hero--tall-gallery .product-hero__inner {
+  align-items: start;
 }
 
 .product-hero__inner {
@@ -509,8 +513,13 @@
   }
 
   .product-gallery__main-frame {
-    min-height: clamp(20rem, 72vw, 28rem);
+    min-height: clamp(24rem, 88vw, 35rem);
     aspect-ratio: 4 / 5;
+  }
+
+  .product-hero--tall-gallery .product-gallery__main-frame {
+    min-height: clamp(30rem, 108vw, 43rem);
+    aspect-ratio: 3 / 4;
   }
 
   .product-gallery__thumbs {

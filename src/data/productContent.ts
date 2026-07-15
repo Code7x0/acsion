@@ -47,11 +47,11 @@ function buildGalleryImages(primary: string, extras: string[], title: string): P
 }
 
 const ascensionCharmImages = buildGalleryImages(
-  '/images/products/ascension-charm.png',
+  '/images/products/ascension-charm/1.jpg',
   [
-    '/images/products/intention-bracelet/hero.jpg',
-    '/images/products/crystal-bracelets.jpg',
-    '/images/products/product-3.jpg',
+    '/images/products/ascension-charm/2.jpg',
+    '/images/products/ascension-charm/3.jpg',
+    '/images/products/ascension-charm/4.jpg',
   ],
   'Ascension Charm',
 );
@@ -71,7 +71,7 @@ export const ascensionCharm: ProductDetail = {
       name: 'Liminal',
       stone: 'Labradorite',
       swatch: 'linear-gradient(135deg, #5c6678 0%, #8b9bb5 45%, #3d4654 100%)',
-      image: '/images/products/ascension-charm.png',
+      image: '/images/products/ascension-charm/1.jpg',
       available: true,
     },
     {
@@ -79,7 +79,7 @@ export const ascensionCharm: ProductDetail = {
       name: 'Solar',
       stone: 'Sunstone',
       swatch: 'linear-gradient(135deg, #d4843a 0%, #f0b56a 45%, #a85f20 100%)',
-      image: '/images/products/intention-bracelet/hero.jpg',
+      image: '/images/products/ascension-charm/2.jpg',
       available: true,
     },
     {
@@ -87,7 +87,7 @@ export const ascensionCharm: ProductDetail = {
       name: 'Aether',
       stone: 'Clear Quartz',
       swatch: 'linear-gradient(135deg, #ece8e1 0%, #ffffff 45%, #c9c3ba 100%)',
-      image: '/images/products/crystal-bracelets.jpg',
+      image: '/images/products/ascension-charm/3.jpg',
       available: true,
     },
   ],
@@ -144,16 +144,16 @@ export const practiceMat: ProductDetail = {
       name: 'Dawnlight',
       stone: 'Dawnlight',
       swatch: 'linear-gradient(135deg, #2e1f5c 0%, #6b4f9c 45%, #c7a14a 100%)',
-      image: '/images/products/ascension-yoga-mat.jpg',
+      image: '/images/products/ascension-practice-mat/1.jpg',
       available: true,
     },
   ],
   images: buildGalleryImages(
-    '/images/products/ascension-yoga-mat.jpg',
+    '/images/products/ascension-practice-mat/1.jpg',
     [
-      '/images/products/product-4.jpg',
-      '/images/products/product-5.jpg',
-      '/images/products/product-6.jpg',
+      '/images/products/ascension-practice-mat/2.jpg',
+      '/images/products/ascension-practice-mat/3.jpg',
+      '/images/products/ascension-practice-mat/4.jpg',
     ],
     'Ascension Practice Mat',
   ),
@@ -170,24 +170,38 @@ export const productsByHandle: Record<string, ProductDetail> = {
     'Ascension Wrap',
     148,
     'Liminal',
-    '/images/products/ascension-wrap.jpg',
-    ['/images/products/product-1.jpg', '/images/products/product-2.jpg', '/images/products/product-3.jpg'],
+    '/images/products/ascension-wrap/1.jpg',
+    [
+      '/images/products/ascension-wrap/2.jpg',
+      '/images/products/ascension-wrap/3.jpg',
+      '/images/products/ascension-wrap/4.jpg',
+    ],
   ),
   'tshirt-black': buildSimpleProduct(
     'tshirt-black',
     'Tshirt-Black',
     46,
     'Aether',
-    '/images/products/tshirt-black.png',
-    ['/images/products/product-1.jpg', '/images/products/product-4.jpg', '/images/products/product-2.jpg'],
+    '/images/products/tshirt-black/1.jpg',
+    [
+      '/images/products/tshirt-black/2.jpg',
+      '/images/products/tshirt-black/3.jpg',
+      '/images/products/tshirt-black/4.jpg',
+    ],
   ),
   'tshirt-white': buildSimpleProduct(
     'tshirt-white',
     'Tshirt-white',
     46,
     'Solar',
-    '/images/products/tshirt-white.png',
-    ['/images/products/product-5.jpg', '/images/products/product-6.jpg', '/images/products/product-2.jpg'],
+    '/images/products/tshirt-white/1.jpg',
+    [
+      '/images/products/tshirt-white/2.jpg',
+      '/images/products/tshirt-white/3.jpg',
+      '/images/products/tshirt-white/4.jpg',
+      '/images/products/tshirt-white/5.jpg',
+      '/images/products/tshirt-white/6.jpg',
+    ],
   ),
 };
 

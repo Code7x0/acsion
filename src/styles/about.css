@@ -63,7 +63,7 @@
   width: 100%;
   min-height: var(--hero-height, 95vh);
   padding:
-    clamp(7.5rem, 14vh, 10.5rem)
+    clamp(4rem, 8vh, 6rem)
     clamp(1.5rem, 4vw, 3rem)
     clamp(3rem, 8vh, 5rem)
     clamp(2rem, 7vw, 7.5rem);

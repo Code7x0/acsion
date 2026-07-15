@@ -38,7 +38,7 @@
   align-items: center;
   min-height: var(--hero-height);
   padding:
-    clamp(6rem, 12vh, 8rem)
+    clamp(3.5rem, 8vh, 5rem)
     var(--gutter)
     clamp(4rem, 8vh, 5rem)
     clamp(4rem, 6vw, 6rem);

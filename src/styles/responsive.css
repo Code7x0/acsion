@@ -393,11 +393,11 @@ body.menu-open {
   /* Hero */
   .hero,
   .hero__content {
-    min-height: 90vh;
+    min-height: calc(100svh - var(--header-height));
   }
 
   .hero__content {
-    padding: calc(var(--space-20) + var(--space-4)) var(--gutter) var(--space-12);
+    padding: var(--space-10) var(--gutter) var(--space-8);
   }
 
   .hero__text {
