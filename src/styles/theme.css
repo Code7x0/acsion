@@ -8,29 +8,43 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  /* Brand colors */
-  --color-twilight: #343644;
-  --color-footer: #1d1b1a;
-  --color-stone: #ebe6e1;
-  --color-stone-muted: #e3ded9;
-  --color-first-light: #e4c8af;
-  --color-aether: #ced2d8;
-  --color-gold: #b8a078;
+  /* Ascension Brand Color System */
+  --color-midnight: #2d2834;
+  --color-ivory: #ebe6e1;
+  --color-threshold: #8a8486;
+  --color-aether: #c7d1d0;
+  --color-nocturne: #312031;
+  --color-gold: #b08a3e; /* Digital Gold — rare premium accents only */
+
+  /* Legacy aliases → brand mapping (structure unchanged) */
+  --color-twilight: var(--color-midnight);
+  --color-footer: var(--color-midnight);
+  --color-stone: var(--color-ivory);
+  --color-stone-muted: #e5e1db;
+  --color-first-light: #d8e0de;
 
   /* Semantic colors */
-  --color-background: var(--color-stone);
-  --color-background-dark: var(--color-twilight);
+  --color-background: var(--color-ivory);
+  --color-background-dark: var(--color-midnight);
   --color-background-accent: var(--color-first-light);
   --color-background-muted: var(--color-aether);
-  --color-text: var(--color-twilight);
-  --color-text-inverse: var(--color-stone);
-  --color-text-muted: rgba(52, 54, 68, 0.62);
-  --color-text-subtle: rgba(52, 54, 68, 0.42);
-  --color-border: rgba(52, 54, 68, 0.12);
-  --color-border-strong: rgba(52, 54, 68, 0.24);
-  --color-accent: var(--color-gold);
-  --color-overlay: rgba(52, 54, 68, 0.35);
+  --color-text: var(--color-midnight);
+  --color-text-inverse: var(--color-ivory);
+  --color-text-muted: rgba(138, 132, 134, 0.92);
+  --color-text-subtle: rgba(138, 132, 134, 0.62);
+  --color-border: rgba(138, 132, 134, 0.22);
+  --color-border-strong: rgba(138, 132, 134, 0.38);
+  --color-accent: var(--color-nocturne);
+  --color-overlay: rgba(45, 40, 52, 0.35);
   --color-overlay-light: rgba(235, 230, 225, 0.72);
+
+  /* Soft layered surfaces — magazine rhythm without hard blocks */
+  --color-surface-ivory: var(--color-ivory);
+  --color-surface-aether: #e0e3e1;
+  --color-surface-aether: color-mix(in srgb, var(--color-aether) 32%, var(--color-ivory));
+  --color-surface-threshold: #e9e5e2;
+  --color-surface-threshold: color-mix(in srgb, var(--color-threshold) 10%, var(--color-ivory));
+  --color-heading-editorial: var(--color-nocturne);
 
   /* Typography — families */
   --font-heading: "Cormorant Garamond", "Times New Roman", Georgia, serif;
@@ -127,7 +141,7 @@
 
   /* Shadows — almost none */
   --shadow-none: none;
-  --shadow-subtle: 0 1px 0 rgba(52, 54, 68, 0.04);
+  --shadow-subtle: 0 1px 0 rgba(45, 40, 52, 0.04);
 
   /* Borders */
   --border-width: 1px;
@@ -151,7 +165,7 @@
   --z-modal: 300;
 
   /* Focus */
-  --focus-ring: 1px solid var(--color-twilight);
+  --focus-ring: 1px solid var(--color-midnight);
   --focus-offset: 3px;
 }
 
@@ -212,7 +226,7 @@ body {
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
-  color: var(--color-text);
+  color: var(--color-midnight);
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -279,8 +293,8 @@ p {
 }
 
 ::selection {
-  background-color: var(--color-first-light);
-  color: var(--color-twilight);
+  background-color: var(--color-midnight);
+  color: var(--color-ivory);
 }
 
 /* --------------------------------------------------------------------------
@@ -293,6 +307,7 @@ p {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-display);
   letter-spacing: var(--tracking-display);
+  color: var(--color-midnight);
 }
 
 .type-h1 {
@@ -301,6 +316,7 @@ p {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-heading);
   letter-spacing: var(--tracking-heading);
+  color: var(--color-midnight);
 }
 
 .type-h2 {
@@ -309,6 +325,7 @@ p {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-heading);
   letter-spacing: var(--tracking-heading);
+  color: var(--color-midnight);
 }
 
 .type-h3 {
@@ -317,6 +334,7 @@ p {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-heading-relaxed);
   letter-spacing: var(--tracking-heading);
+  color: var(--color-midnight);
 }
 
 .type-h4 {
@@ -324,6 +342,7 @@ p {
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-heading-relaxed);
+  color: var(--color-midnight);
 }
 
 .type-body-lg {
@@ -331,6 +350,7 @@ p {
   font-size: var(--font-size-body-lg);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
+  color: var(--color-threshold);
 }
 
 .type-body {
@@ -338,6 +358,7 @@ p {
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
+  color: var(--color-threshold);
 }
 
 .type-body-sm {
@@ -345,6 +366,7 @@ p {
   font-size: var(--font-size-body-sm);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body-tight);
+  color: var(--color-threshold);
 }
 
 .type-caption {
@@ -675,48 +697,52 @@ main#MainContent,
 }
 
 .btn--primary {
-  background-color: var(--color-twilight);
-  color: var(--color-text-inverse);
-  border-color: var(--color-twilight);
+  background-color: var(--color-midnight);
+  color: var(--color-ivory);
+  border-color: var(--color-midnight);
 }
 
 .btn--primary:hover {
-  background-color: transparent;
-  color: var(--color-twilight);
+  background-color: var(--color-nocturne);
+  color: var(--color-ivory);
+  border-color: var(--color-nocturne);
 }
 
 .btn--secondary {
   background-color: transparent;
-  color: var(--color-text);
-  border-color: var(--color-border-strong);
+  color: var(--color-midnight);
+  border-color: var(--color-threshold);
 }
 
 .btn--secondary:hover {
-  border-color: var(--color-twilight);
+  background-color: var(--color-aether);
+  border-color: var(--color-threshold);
+  color: var(--color-midnight);
 }
 
 .btn--inverse {
-  background-color: var(--color-stone);
-  color: var(--color-twilight);
-  border-color: var(--color-stone);
+  background-color: var(--color-ivory);
+  color: var(--color-midnight);
+  border-color: var(--color-ivory);
 }
 
 .btn--inverse:hover {
   background-color: transparent;
-  color: var(--color-stone);
+  color: var(--color-ivory);
+  border-color: var(--color-ivory);
 }
 
 .btn--ghost {
   background-color: transparent;
-  color: var(--color-text-inverse);
+  color: var(--color-ivory);
   border-color: rgba(235, 230, 225, 0.4);
 }
 
 .btn--ghost:hover {
-  border-color: var(--color-stone);
+  border-color: var(--color-ivory);
 }
 
-/* Gold accent — tiny use only */
+/* Digital Gold — tiny premium accents only */
 .accent-gold {
   color: var(--color-gold);
 }
@@ -790,12 +816,31 @@ main#MainContent,
   left: var(--space-4);
   z-index: var(--z-modal);
   padding: var(--space-3) var(--space-6);
-  background-color: var(--color-twilight);
-  color: var(--color-text-inverse);
+  background-color: var(--color-midnight);
+  color: var(--color-ivory);
   transform: translateY(-200%);
   transition: transform var(--duration-fast) var(--ease-luxury);
 }
 
 .skip-link:focus {
   transform: translateY(0);
+}
+
+/* Scrollbar — brand palette */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-midnight) var(--color-ivory);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-midnight);
 }

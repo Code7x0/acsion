@@ -1,3 +1,6 @@
+import type { CSSProperties } from 'react';
+import { SiteLink } from './SiteLink';
+
 type CollectionCardProps = {
   title: string;
   subtitle: string;
@@ -18,10 +21,10 @@ export function CollectionCard({
   overlayOpacity = 0.2,
 }: CollectionCardProps) {
   return (
-    <a
+    <SiteLink
       href={href}
       className="collection-card"
-      style={{ '--card-overlay': overlayOpacity } as React.CSSProperties}
+      style={{ '--card-overlay': overlayOpacity } as CSSProperties}
     >
       <div className="collection-card__media" aria-hidden="true">
         <img className="collection-card__image" src={image} alt={imageAlt ?? title} loading="lazy" />
@@ -33,6 +36,6 @@ export function CollectionCard({
         <p className="collection-card__subtitle type-nav">{subtitle}</p>
         <span className="collection-card__cta type-label">{ctaLabel}</span>
       </div>
-    </a>
+    </SiteLink>
   );
 }

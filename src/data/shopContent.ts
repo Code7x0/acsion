@@ -16,7 +16,7 @@ export const shopPhilosophy = {
   heading: ['Every object carries energy.', 'Every ritual begins with intention.'],
   copy:
     'Ascension creates thoughtfully designed objects that quietly accompany your daily rituals, bringing presence, reflection and intention into everyday life.',
-  backgroundColor: '#F7F3EC',
+  backgroundColor: '#EBE6E1',
   showWatermark: true,
 };
 

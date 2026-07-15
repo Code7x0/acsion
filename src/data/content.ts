@@ -2,6 +2,7 @@ export const site = {
   name: 'Ascension',
   tagline: 'Frequency-inspired living for those becoming.',
   nav: [
+    { label: 'Home', href: '/' },
     { label: 'Shop', href: '/shop' },
     { label: 'Collections', href: '/#collections' },
     { label: 'Our Story', href: '/about' },
@@ -74,7 +75,7 @@ export const collectionStory = {
       title: 'Liminal',
       subtitle: 'The threshold',
       ctaLabel: 'Explore',
-      href: '#collections',
+      href: '/shop',
       overlayOpacity: 0.25,
       image:
         'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
@@ -83,7 +84,7 @@ export const collectionStory = {
       title: 'Solar',
       subtitle: 'The illumination',
       ctaLabel: 'Explore',
-      href: '#collections',
+      href: '/shop',
       overlayOpacity: 0.2,
       image:
         'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
@@ -92,7 +93,7 @@ export const collectionStory = {
       title: 'Aether',
       subtitle: 'The expansion',
       ctaLabel: 'Explore',
-      href: '#collections',
+      href: '/shop',
       overlayOpacity: 0.25,
       image:
         'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80',
