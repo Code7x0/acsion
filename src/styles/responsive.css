@@ -566,15 +566,22 @@ body.menu-open {
 
 @media (max-width: 767px) {
   .site-logo--header .site-logo__image {
-    --logo-width: 75px;
-    --logo-height: 75px;
+    --logo-width: 44px;
+    --logo-height: 44px;
+  }
+
+  .site-logo--mobile-menu .site-logo__image,
+  .mobile-menu .site-logo__image {
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
   }
 }
 
 @media (max-width: 479px) {
   .site-logo--header .site-logo__image {
-    --logo-width: 75px;
-    --logo-height: 75px;
+    --logo-width: 40px;
+    --logo-height: 40px;
   }
 }
 

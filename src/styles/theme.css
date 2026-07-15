@@ -190,7 +190,7 @@
     --section-gap: var(--space-10);
     --gutter: 1.5rem;
     --gutter-lg: 1.5rem;
-    --header-height: calc(75px + var(--space-10));
+    --header-height: 3.5rem;
   }
 }
 
