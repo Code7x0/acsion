@@ -6,7 +6,7 @@ export const site = {
     { label: 'Shop', href: '/shop' },
     { label: 'Collections', href: '/#collections' },
     { label: 'Our Story', href: '/about' },
-    { label: 'Contact', href: '/#newsletter' },
+    { label: 'Contact', href: '/contact' },
   ],
   footerTagline: 'Frequency happens within',
   footerMenus: [

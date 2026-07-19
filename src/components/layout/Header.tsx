@@ -47,6 +47,13 @@ export function Header({ cartCount = 0, logoHref = '/' }: HeaderProps) {
   const { isOpen: searchOpen, toggleSearch } = useShopSearch();
   const location = useLocation();
   const isShopPage = location.pathname === '/shop';
+
+  const currentPath = location.pathname.replace(/\/+$/, '') || '/';
+  const isActiveLink = (href: string) => {
+    if (href.includes('#')) return false;
+    const linkPath = href.replace(/\/+$/, '') || '/';
+    return currentPath === linkPath;
+  };
   const [menuOpen, setMenuOpen] = useState(false);
   const closeTimerRef = useRef<number | null>(null);
 
@@ -121,13 +128,20 @@ export function Header({ cartCount = 0, logoHref = '/' }: HeaderProps) {
 
           <nav className="site-header__nav" aria-label="Primary">
             <ul className="site-header__menu">
-              {site.nav.map((item) => (
-                <li key={item.label}>
-                  <SiteLink className="site-header__link type-nav hover-underline" href={item.href}>
-                    {item.label}
-                  </SiteLink>
-                </li>
-              ))}
+              {site.nav.map((item) => {
+                const active = isActiveLink(item.href);
+                return (
+                  <li key={item.label}>
+                    <SiteLink
+                      className={`site-header__link type-nav hover-underline${active ? ' site-header__link--active' : ''}`}
+                      href={item.href}
+                      ariaCurrent={active ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </SiteLink>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -201,21 +215,25 @@ export function Header({ cartCount = 0, logoHref = '/' }: HeaderProps) {
 
           <nav className="mobile-menu__nav" aria-label="Mobile">
             <ul className="mobile-menu__list">
-              {site.nav.map((item, index) => (
-                <li
-                  className="mobile-menu__item"
-                  key={item.label}
-                  style={{ '--menu-item-index': index } as React.CSSProperties}
-                >
-                  <a
-                    className="mobile-menu__link type-nav"
-                    href={item.href}
-                    onClick={(event) => handleNavClick(event, item.href, true)}
+              {site.nav.map((item, index) => {
+                const active = isActiveLink(item.href);
+                return (
+                  <li
+                    className="mobile-menu__item"
+                    key={item.label}
+                    style={{ '--menu-item-index': index } as React.CSSProperties}
                   >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+                    <a
+                      className={`mobile-menu__link type-nav${active ? ' mobile-menu__link--active' : ''}`}
+                      href={item.href}
+                      aria-current={active ? 'page' : undefined}
+                      onClick={(event) => handleNavClick(event, item.href, true)}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 

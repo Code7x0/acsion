@@ -5,6 +5,7 @@ import { Footer } from './components/layout/Footer';
 import { ShopSearchPanel } from './components/shop/ShopSearchPanel';
 import { ShopSearchProvider } from './context/ShopSearchContext';
 import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { ShopPage } from './pages/ShopPage';
@@ -41,6 +42,7 @@ function AppShell() {
           <Route path="/" element={<HomePage onQuickAdd={handleQuickAdd} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/shop" element={<ShopPage onQuickAdd={handleQuickAdd} />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/products/:handle" element={<ProductPage onAddToCart={handleQuickAdd} />} />
         </Routes>
       </main>
